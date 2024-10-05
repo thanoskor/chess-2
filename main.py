@@ -6,7 +6,7 @@ BOARD = [[None for i in range(9)] for i in range(9)]
 # Initialize Pygame
 pygame.init()
 
-# Set up display
+# Set up display g
 WIDTH, HEIGHT = 800, 800
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Chess Board')
