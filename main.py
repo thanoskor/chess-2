@@ -2,7 +2,6 @@ import pprint as p
 import pygame
 import sys
 
-BOARD = [[None for i in range(9)] for i in range(9)]
 # Initialize Pygame
 pygame.init()
 
