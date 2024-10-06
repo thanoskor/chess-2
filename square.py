@@ -1,16 +1,17 @@
-ROWS = [0, 1, 2, 3, 4, 5, 6, 7]
-COLS = ["a", "b", "c", "d", "e", "f", "g"]
-PIECES = ["P", "K", "B", "R", "Q", "K"]
+import pygame
 
-class square:
+class piece(pygame.sprite.Sprite):
 
-    def __init__(self, row, col, piece) -> None:
-        self.row = row
-        self.col = col
-        self.piece = piece
+    def __init__(self, image_path, position, color):
+        super().__init__()
+        self.image = pygame.image.load(image_path).convert_alpha()
+        self.rect = self.image.get_rect()
+        self.rect.topleft = position
+
+    def update(self):
+        pass
+
+class pawn(piece):
     
-    def remove_piece(self):
-        self.piece = None
-    
-    def place_piece(self, piece):
-        self.piece = piece
+    def __init__(self, position):
+        super().__init__("test_sprite.png", position)

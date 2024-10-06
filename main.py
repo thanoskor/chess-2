@@ -1,5 +1,6 @@
 import pprint as p
-import pygame # type: ignore
+import square as sqr
+import pygame
 import sys
 
 # Initialize Pygame
@@ -26,15 +27,20 @@ def draw_board():
                 color = BLACK
             pygame.draw.rect(window, color, (col * tile_size, row * tile_size, tile_size, tile_size))
 
+pawn_sprite = sqr.pawn((100, 100))
+all_sprites = pygame.sprite.Group()
+all_sprites.add(pawn_sprite)
+
 # Main loop
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    
     # Draw the chessboard
     draw_board()
+    all_sprites.update()
+    all_sprites.draw(window)
     
     # Update the display
     pygame.display.flip()
