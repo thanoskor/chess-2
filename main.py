@@ -1,5 +1,5 @@
 import pprint as p
-import pygame
+import pygame # type: ignore
 import sys
 
 # Initialize Pygame
