@@ -2,13 +2,9 @@ import pygame
 from pieces import *
 from square import *
 
-#black and white
-#color_pallet = {black: (0, 0, 0), white: (255, 255, 255)}
-
 class Board:
     def __init__(self, width, height, color_pallet):
         self.color_pallet = color_pallet
-
         pygame.init()
         self.width = width
         self.height = height
@@ -27,4 +23,4 @@ class Board:
                     color = self.color_pallet["white"]
                 else:
                     color = self.color_pallet["black"]
-                pygame.draw.rect(window, color, (col * tile_size, row * tile_size, tile_size, tile_size))
+                pygame.draw.rect(self.window, color, (col * self.tile_size, row * self.tile_size, self.tile_size, self.tile_size))

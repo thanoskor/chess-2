@@ -1,9 +1,11 @@
 from pieces import *
+from board import *
 import pygame
 import sys
 
-# Function to draw the chessboard
+color_pallet = {"black": (0, 0, 0), "white": (255, 255, 255)}
 
+board = Board(800, 800, color_pallet)
 test_sprite = piece(0, 0, "w", "k")
 
 # Main loop
@@ -20,8 +22,8 @@ while True:
                 if sprite.return_square_pos() == curret_square:
                     sprite.got_clicked()
 
-    draw_board()
-    all_sprites.draw(window)
+    board.draw_board()
+    all_sprites.draw(board.window)
 
     # Update the display
     pygame.display.flip()
