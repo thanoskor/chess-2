@@ -2,34 +2,9 @@ from pieces import *
 import pygame
 import sys
 
-# Initialize Pygame
-pygame.init()
-
-# Set up display
-WIDTH, HEIGHT = 800, 800
-window = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('Chess Board')
-
-# Colors
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-
 # Function to draw the chessboard
-def draw_board():
-    tile_size = WIDTH // 8  # Each tile size
-
-    for row in range(8):
-        for col in range(8):
-            if (row + col) % 2 == 0:
-                color = WHITE
-            else:
-                color = BLACK
-            pygame.draw.rect(window, color, (col * tile_size, row * tile_size, tile_size, tile_size))
-all_sprites = pygame.sprite.Group()
 
 test_sprite = piece(0, 0, "w", "k")
-
-all_sprites.add(test_sprite)
 
 # Main loop
 while True:

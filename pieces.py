@@ -1,4 +1,5 @@
 import pygame
+all_sprites = pygame.sprite.Group()
 
 def get_checker_cords(row, col):
     tile_size = 800 // 8
@@ -15,19 +16,12 @@ class piece(pygame.sprite.Sprite):
         self.image = pygame.image.load(image_path).convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.topleft = get_checker_cords(row, col)
+        all_sprites.add(self)
+
 
     def got_clicked(self):
-        self.rect.topleft = pygame.mouse.get_pos()
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONUP:
-                pass
+        print("!")
     
     def return_square_pos(self):
         return get_square(self.rect.topleft)
-
-"""
-class pawn(piece):
     
-    def __init__(self, position):
-        super().__init__("test_sprite.png")
-"""
