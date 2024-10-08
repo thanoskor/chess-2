@@ -23,3 +23,5 @@ class piece(pygame.sprite.Sprite):
     
     def return_square_pos(self):
         return get_square(self.rect.topleft)
+
+

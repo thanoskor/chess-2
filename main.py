@@ -7,8 +7,8 @@ color_pallet = {"black": (0, 0, 0), "white": (255, 255, 255)}
 
 board = Board(800, 800, color_pallet)
 test_sprite = piece(0, 0, "w", "k")
+sprite2 = piece(0, 1, "b", "q")
 
-# Main loop
 while True:
     
     for event in pygame.event.get():
