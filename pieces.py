@@ -18,10 +18,8 @@ class piece(pygame.sprite.Sprite):
         self.rect.topleft = get_checker_cords(row, col)
         all_sprites.add(self)
 
-
     def got_clicked(self):
         print("!")
     
     def return_square_pos(self):
         return get_square(self.rect.topleft)
-    

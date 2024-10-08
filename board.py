@@ -11,6 +11,7 @@ class Board:
         self.window = pygame.display.set_mode((self.width, self.height))    
         pygame.display.set_caption('Chess')
         self.tile_size = self.width // 8
+        self.grid = []
 
     def fill_board_with_square_objects(self):
         pass
