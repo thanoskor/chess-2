@@ -7,6 +7,21 @@ class Game:
     def __init__(self) -> None:
         self.to_move = "w"
     
+    def is_a_king_in_check(self):
+        kings = []
+
+        for piece in all_pieces:
+            if piece.type == "k":
+                kings.append(piece)
+
+        for king in kings:
+            for enemy_piece in all_pieces:
+                if enemy_piece.color != king.color:
+                    for move in enemy_piece.legal_moves:
+                        if move[0] == king.row and move[1] == king.col:
+                            return True
+        return False
+
     def alternate_player(self):
         if self.to_move == "w":
             self.to_move = "b"

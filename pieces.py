@@ -42,7 +42,6 @@ class Piece:
             mouse_cords = get_mouse_rc()
             if mouse_cords in self.legal_moves:
                 self.move_self(mouse_cords)
-                self.legal_moves = self.get_legal_moves()
                 return "moved"
             return "unselected"
         return "no_action"
@@ -180,7 +179,14 @@ class King(Piece):
                 target_piece = Board[new_row][new_col]
                 if target_piece is None or target_piece.color != self.color:
                     legal_moves.append([new_row, new_col])
-
+        
+        for piece in all_pieces:
+            if piece.color != self.color:
+                moves = piece.legal_moves
+                for move in moves:
+                    if move in legal_moves:
+                        legal_moves.remove(move)
+        
         return legal_moves
 
 class Bishop(Piece):
