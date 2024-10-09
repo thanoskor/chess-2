@@ -1,5 +1,6 @@
 import pygame
 from Ui import *
+from sound_effects import *
 
 Board = [[None for i in range(8)]for i in range(8)]
 all_pieces = []
@@ -27,6 +28,7 @@ class Piece:
         self.row, self.col = place[0], place[1]
         try:
             all_pieces.remove(Board[self.row][self.col])
+            sounds.play_caputure_sound()
         except:
             pass
         Board[self.row][self.col] = self
@@ -140,7 +142,7 @@ class Queen(Piece):
             (1, 0), (-1, 0), (0, 1), (0, -1),  # Rook moves
             (1, 1), (1, -1), (-1, 1), (-1, -1)  # Bishop moves
         ]
-        
+
         for direction in directions:
             for step in range(1, 8):  # Can move up to 7 squares
                 new_row = self.row + direction[0] * step
