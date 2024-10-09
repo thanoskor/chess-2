@@ -1,0 +1,12 @@
+got_selected()
+    self.selected = True
+    ad move_indicator_dots(legal_moves)
+    await_for_comand()
+
+await_for_comand(event)
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        mouse_click = getsquarer(mouse position)
+        if mouse_click in legal_moves:
+            move there
+            update legal_moves
+        get unselected
