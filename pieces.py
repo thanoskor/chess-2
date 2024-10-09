@@ -1,15 +1,15 @@
 import pygame
-from UI import TILE_SIZE
+from ui import TILE_SIZE
 
 Board = [[None for i in range(8)]for i in range(8)]
-ALL_PIECES = []
+all_pieces = []
 
 class Piece:
     def __init__(self, row, col, color) -> None:
         self.row = row
         self.col = col
         self.color = color
-        ALL_PIECES.append(self)
+        all_pieces.append(self)
         self.receiving_events = False
 
     def got_clicked(self):

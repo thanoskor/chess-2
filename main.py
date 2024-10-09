@@ -1,10 +1,10 @@
 import pygame
 import sys
-from UI import *
+from ui import *
 from pieces import *
 
-ui = UI()
-class GAME:
+ui = Ui()
+class Game:
     def __init__(self, fps) -> None:
         self.frame_rate = fps
         self.clock = pygame.time.Clock()
@@ -32,12 +32,11 @@ class GAME:
             for piece in event_receiving_pieces:
                 if piece.receiving_events == False:
                     event_receiving_pieces.remove(piece)
-
-            pygame.display.flip()         
+        
             ui.draw_board()
-            ui.draw_pieces(ALL_PIECES)
+            ui.draw_pieces(all_pieces)
             ui.update()
             self.clock.tick(self.frame_rate)
 
-game = GAME(60)
+game = Game(60)
 game.start()
