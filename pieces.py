@@ -35,5 +35,5 @@ class Pawn(Piece):
 
 Pawn(1,1,"w")
 
-for piece in ALL_PIECES:
+for piece in all_pieces:
     Board[piece.row][piece.col] = piece
