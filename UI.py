@@ -10,16 +10,21 @@ DARK_SQUARE_COLOR = (118, 150, 86)
 LIGHT_SQUARE_COLOR = (238, 238, 210)
 CIRCLE_COLOR = (100, 100, 100)
 
+def get_square(mousep):
+    return [mousep[1]//TILE_SIZE, mousep[0]//TILE_SIZE]
+
 class Ui:
     
-    def __init__(self) -> None:
+    def __init__(self, fps) -> None:
         self.main_window = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('Chess')
         self.dot_points = []
-        self.all_sprites = pygame.sprite.Group()
+        self.frame_rate = fps
+        self.clock = pygame.time.Clock()
     
     def update(self):
         pygame.display.flip()
+        self.clock.tick(self.frame_rate)
     
     def draw_board(self):
         for row in range(8):
@@ -34,17 +39,22 @@ class Ui:
     def add_dot_points(self, points):
         self.dot_points += points
 
+    def clear_dot_points(self):
+        self.dot_points = []
+
     def draw_dots(self):
         for point in self.dot_points:
-            center = (point[0]*TILE_SIZE + TILE_SIZE//2, point[1]*TILE_SIZE + TILE_SIZE//2)
+            center = (point[1]*TILE_SIZE + TILE_SIZE//2, point[0]*TILE_SIZE + TILE_SIZE//2)
             radius = 10
             pygame.draw.circle(self.main_window, CIRCLE_COLOR, center, radius)
 
     def draw_pieces(self, pieces):
         for piece in pieces:
-            image_path = f"piece-sprites\{piece.color}{piece.type}.png"
+            image_path = f"chess-2\piece-sprites\{piece.color}{piece.type}.png"
             image = pygame.image.load(image_path)
             scaled_image = pygame.transform.scale(image, (TILE_SIZE, TILE_SIZE))
-            x = piece.row * TILE_SIZE
-            y = piece.col * TILE_SIZE
+            y = piece.row * TILE_SIZE
+            x = piece.col * TILE_SIZE
             self.main_window.blit(scaled_image, (x, y))
+
+ui = Ui(60)
