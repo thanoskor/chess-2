@@ -3,7 +3,7 @@ from pieces import *
 from square import *
 
 class Board:
-    
+
     def __init__(self, width, height, color_pallet):
         self.color_pallet = color_pallet
         pygame.init()

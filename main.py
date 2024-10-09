@@ -3,7 +3,7 @@ from board import *
 import pygame
 import sys
 
-color_pallet = {"black": (0, 0, 0), "white": (255, 255, 255)}
+color_pallet = {"black": (23, 100, 15), "white": (255, 255, 255)}
 
 board = Board(800, 800, color_pallet)
 test_sprite = piece(0, 0, "w", "k")
