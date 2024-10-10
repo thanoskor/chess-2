@@ -1,5 +1,5 @@
 import pygame
-from Ui import *
+from UI import *
 from sound_effects import *
 
 Board = [[None for i in range(8)]for i in range(8)]

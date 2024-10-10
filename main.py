@@ -1,6 +1,6 @@
 import pygame
 import sys
-from Ui import *
+from UI import *
 from pieces import *
 
 class Game:
